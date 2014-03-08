@@ -3,37 +3,95 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- build:js js/vendor/modernizr.js -->
-        <script src="components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
-    </head>
-    <body>
-                             
-        <h1>Hello World!</h1>
-                             
-        <!--[if lt IE 7]>
-          <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- build:js js/vendor/modernizr.js -->
+    <script src="components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+    <script type="text/javascript" src="//use.typekit.net/qgp0rxp.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-            (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-            g.src='//www.google-analytics.com/ga.js';
-            s.parentNode.insertBefore(g,s)}(document,'script'));
-        </script>
+    <div class="left-column">
+      <div class="headcase">
+        <div class="wire"></div>
+        <img class="headshot" src="gif.gif" alt="My Handsome Face"/>
+      </div>
+      <div class="intro">
+        <div class="column"></div>
+        <ul>
+          <li>Jory Graham</li>
+          <li>Software Developer</li>
+          <li>Works at Pressly</li>
+        </ul>
+        <div class="column"></div>
+      </div>
+      <div class="likes">
+        <ul>
+          <li>Likes roguelikes,</li>
+          <li>cryptic crosswords,</li>
+          <li>and Deerhoof.</li>
+        </ul>
+      </div>
+    </div>
 
-        <!-- build:js js/main.js -->
-        <script src="components/jquery/jquery.min.js"></script>
-        <script src="js/script.js"></script>
-        <!-- endbuild -->
-</body>
+    <div class="twitter">
+      <div class="wire"></div>
+      <div class="twitter-widget">
+        <div id="timeline"></div>
+      </div>
+    </div>
+
+    <div class="right-column">
+      <div class="switchBox">
+        <div class="links">
+          <div>Links</div>
+          <ul>
+            <li><a href="http://github.com/jory">Github</a></li>
+            <li><a href="http://www.rdio.com/people/jorygraham">Rdio</a></li>
+            <li><a href="http://www.instagram.com/jorygraham">Instagram</a></li>
+            <li>Et Cetera</li>
+            <li>Et Cetera</li>
+          </ul>
+        </div>
+        <div class="switch">
+          <div class="toggle">
+            <div></div>
+          </div>
+          <div class="toggle-label normal">On</div>
+          <div class="toggle-label invert">Off</div>
+          <script type="text/javascript">
+          </script>
+        </div>
+      </div>
+      <div class="contact">
+        <div>(._.)</div>
+        <div><a href="mailto:jory.graham@gmail.com">Get in<br/> touch</a></div>
+      </div>
+    </div>
+    <!--[if lt IE 7]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+     var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+                    g.src='//www.google-analytics.com/ga.js';
+                    s.parentNode.insertBefore(g,s)}(document,'script'));
+    </script>
+
+    <!-- build:js js/main.js -->
+    <script src="components/jquery/jquery.min.js"></script>
+    <script src="twittering.js"></script>
+    <script src="js/script.js"></script>
+    <!-- endbuild -->
+  </body>
 </html>
