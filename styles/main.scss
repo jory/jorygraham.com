@@ -71,8 +71,8 @@ html, body, a {
   // TODO: Add masking to all the preprocessors, and also blog about
   //  it.
 
-  -webkit-mask: url('circle.svg') 50% 50% no-repeat;
-  mask: url('circle-mask.svg#mask');
+  -webkit-mask: url('../img/circle.svg') 50% 50% no-repeat;
+  mask: url('../img/circle-mask.svg#mask');
   margin-bottom: 2em;
 }
 
@@ -119,11 +119,11 @@ html, body, a {
 }
 
 .likes {
-  background: url('hex.svg') 50% 50% no-repeat;
+  background: url('../img/hex.svg') 50% 50% no-repeat;
   background-size: contain;
   
   .dark & {
-    background-image: url('hex-dark.svg');
+    background-image: url('../img/hex-dark.svg');
   }
 
   ul {

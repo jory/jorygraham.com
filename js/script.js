@@ -27,7 +27,9 @@
     link.setAttribute('href', href);
 
     var oldLink = document.querySelector("link[rel='shortcut icon']");
-    oldLink.parentNode.removeChild(oldLink);
+    if (oldLink) {
+      oldLink.parentNode.removeChild(oldLink);
+    }
 
     document.querySelector('head').appendChild(link);
   }
