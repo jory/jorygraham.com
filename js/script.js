@@ -33,16 +33,10 @@
   }
 
   function changeImage () {
-    var img = document.querySelector('.headshot');
-
-    var src = '';
-    if ( ! isDark) {
-      src = 'dark.gif';
-    } else {
-      src = 'light.gif';
+    var images = document.querySelectorAll('.headshot img');
+    for (var i = 0, l = images.length; i < l; i++) {
+      images[i].classList.toggle('foreground');
     }
-
-    img.setAttribute('src', 'img/' + src);
   };
 
   var toggle = document.getElementsByClassName('toggle')[0];

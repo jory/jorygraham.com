@@ -53,27 +53,49 @@ html, body, a {
 
 .headcase {
   position: relative;
+  margin-bottom: 2em;
 
   .wire {
     height: 0px;
 
     position: absolute;
-    top: 35%;
+    top: 50%;
     right: 0%;
     left: 50%;
-    
+
     border-top: 3px dotted;
     @include borderColor;
   }
 }
 
 .headshot {
-  // TODO: Add masking to all the preprocessors, and also blog about
-  //  it.
+  @include normalColor;
 
-  -webkit-mask: url('../img/circle.svg') 50% 50% no-repeat;
-  mask: url('../img/circle-mask.svg#mask');
-  margin-bottom: 2em;
+  width: 131px;
+  height: 101px;
+
+  margin: auto;
+  position: relative;
+  left: -10px;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 10px;
+
+    // TODO: Add masking to all the preprocessors, and also blog about
+    //  it.
+    -webkit-mask: url('../img/circle.svg') 50% 50% no-repeat;
+    mask: url('../img/circle-mask.svg#mask');
+
+    @include transition(opacity 1000ms);
+
+    opacity: 0;
+
+    &.foreground {
+      opacity: 1;
+    }
+  }
 }
 
 .intro, .likes, .switchBox {
@@ -106,7 +128,7 @@ html, body, a {
 
     width: 10px;
   }
-  
+
   ul {
     margin: 0 10px;
     padding: 0 5px 10px;
@@ -121,7 +143,7 @@ html, body, a {
 .likes {
   background: url('../img/hex.svg') 50% 50% no-repeat;
   background-size: contain;
-  
+
   .dark & {
     background-image: url('../img/hex-dark.svg');
   }
@@ -394,7 +416,7 @@ html, body, a {
 
       width: 115px;
       height: 0px;
-      
+
       border-top: 3px dotted;
       @include borderColor;
     }
