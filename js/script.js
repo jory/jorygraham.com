@@ -22,8 +22,6 @@
     } else {
       href = 'favicon.ico';
     }
-    isDark = ! isDark;
-
     link.setAttribute('href', href);
 
     var oldLink = document.querySelector("link[rel='shortcut icon']");
@@ -34,6 +32,19 @@
     document.querySelector('head').appendChild(link);
   }
 
+  function changeImage () {
+    var img = document.querySelector('.headshot');
+
+    var src = '';
+    if ( ! isDark) {
+      src = 'dark.gif';
+    } else {
+      src = 'light.gif';
+    }
+
+    img.setAttribute('src', 'img/' + src);
+  };
+
   var toggle = document.getElementsByClassName('toggle')[0];
   var isDark = false;
 
@@ -41,6 +52,9 @@
     document.body.parentElement.classList.toggle('dark');
 
     changeFavico();
+    changeImage();
+
+    isDark = ! isDark;
 
     var iframe = document.querySelector('iframe');
     iframe.contentDocument.defaultView.postMessage('dark', '*');
