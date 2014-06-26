@@ -1,4 +1,6 @@
 (function () {
+  window.isDark = false;
+
   function changeTitle () {
     var titles = ["I didn't know what to title this page.",
                   "Rogueliker",
@@ -40,11 +42,11 @@
   };
 
   var toggle = document.getElementsByClassName('toggle')[0];
-  var isDark = false;
 
   toggle.addEventListener('click', function () {
     document.body.parentElement.classList.toggle('dark');
 
+    changeTitle();
     changeFavico();
     changeImage();
 
@@ -52,7 +54,5 @@
 
     var iframe = document.querySelector('iframe');
     iframe.contentDocument.defaultView.postMessage('dark', '*');
-
-    changeTitle();
   });
 })();

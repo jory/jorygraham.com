@@ -29,18 +29,24 @@ window.twttr.ready(function (twttr) {
 
       docEl.appendChild(style);
 
+      function darken() {
+        docEl.querySelector('body').classList.toggle('dark');
+      }
+
       doc.defaultView.addEventListener('message', function (evt) {
-        el.parentElement.classList.add('loaded');
+        if (evt.data === 'loaded') {
+          if (window.isDark) darken();
+          el.parentElement.classList.add('loaded');
+        }
+
+        if (evt.data === 'dark') {
+          darken();
+        }
       });
 
       var script = doc.createElement('script');
       script.type = 'text/javascript';
-      script.innerHTML = "(function() {var config = {kitId: 'qgp0rxp'}; var d = false; var tk = document.createElement('script'); tk.src = '//use.typekit.net/' + config.kitId + '.js'; tk.type = 'text/javascript'; tk.async = 'true'; tk.onload = tk.onreadystatechange = function() {var rs = this.readyState; if (d || rs && rs != 'complete' && rs != 'loaded') return; d = true; try { Typekit.load(config); document.defaultView.postMessage('loaded', '*')} catch (e) {} };       document.defaultView.addEventListener('message', function (evt) {\
-if (evt.data === 'dark') {\
-document.body.classList.toggle('dark');\
-}\
-});\
-var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tk, s); })();";
+      script.innerHTML = "(function() {var config = {kitId: 'qgp0rxp'}; var d = false; var tk = document.createElement('script'); tk.src = '//use.typekit.net/' + config.kitId + '.js'; tk.type = 'text/javascript'; tk.async = 'true'; tk.onload = tk.onreadystatechange = function() {var rs = this.readyState; if (d || rs && rs != 'complete' && rs != 'loaded') return; d = true; try { Typekit.load(config); document.defaultView.postMessage('loaded', '*')} catch (e) {} }; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(tk, s); })();";
 
       docEl.appendChild(script);
     },
