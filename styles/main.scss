@@ -4,17 +4,6 @@
 
 @import "colors";
 
-@mixin wire {
-  height: 0px;
-  border-top: 3px dotted;
-  @include borderColor;
-}
-
-::selection {
-  background: $highlightColor;
-  color: $backgroundColor;
-}
-
 ul, li {
   list-style: none;
   margin: 0;
@@ -90,7 +79,6 @@ html, body, a {
     bottom: 0;
 
     border: 3px solid;
-    @include borderColor;
 
     &:first-child {
       left: 0;
@@ -112,7 +100,6 @@ html, body, a {
 
   li  {
     border-bottom: 2px dotted;
-    @include borderColor;
   }
 }
 
@@ -160,7 +147,6 @@ html, body, a {
     z-index: -1;
 
     border: 3px solid;
-    @include borderColor;
   }
 }
 
@@ -169,7 +155,6 @@ html, body, a {
   height: 400px;
 
   border: 3px solid;
-  @include borderColor;
 
   position: relative;
   overflow: hidden;
@@ -181,6 +166,7 @@ html, body, a {
     left: 0;
     right: 0;
     bottom: 0;
+
   }
 
   &.loaded:after {
@@ -193,12 +179,10 @@ html, body, a {
   width: 140px;
   margin-top: 1.5em;
   border: 3px solid;
-  @include borderColor;
 
   div {
     text-transform: uppercase;
     border-bottom: 3px solid;
-    @include borderColor;
   }
 
   ul {
@@ -237,7 +221,6 @@ html, body, a {
     height: 3em;
 
     border-left: 3px dotted;
-    @include borderColor;
   }
 
   .toggle-label {
@@ -265,7 +248,6 @@ html, body, a {
     height: 30px;
 
     border: 3px solid;
-    @include borderColor;
 
     cursor: pointer;
 
@@ -278,7 +260,6 @@ html, body, a {
       left: 5px;
 
       border: 3px solid;
-      @include borderColor;
 
       &:before {
         content: "";
@@ -290,11 +271,8 @@ html, body, a {
         width: 4px;
         height: 3px;
 
-        background: $foregroundColor;
-
         .dark & {
           top: 5px;
-          background: $backgroundColor;
         }
       }
     }
@@ -335,7 +313,6 @@ html, body, a {
     bottom: 0;
     right: 0;
     border: 3px solid;
-    @include borderColor;
     @include transform(rotate(45deg));
     pointer-events: none;
   }

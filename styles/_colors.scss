@@ -6,6 +6,8 @@ $backgroundColor: $lightBlue;
 $foregroundColor: $blue;
 $highlightColor: $blueGrey;
 
+//////////////////////////////////////////
+
 @mixin normalColor {
   @include transition(background 1000ms, color 1000ms);
 
@@ -26,6 +28,36 @@ $highlightColor: $blueGrey;
   }
 }
 
+@mixin wire {
+  height: 0px;
+  border-top: 3px dotted;
+  @include borderColor;
+}
+
+//////////////////////////////////////////
+
+::selection {
+  background: $highlightColor;
+  color: $backgroundColor;
+}
+
 html, body, a, .headshot, .twitter-widget, #timeline:after {
   @include normalColor;
+}
+
+.intro .column, .intro li,
+.twitter-widget:before,
+.timeline,
+.links, .link div,
+.switch:before, .switch .toggle, .switch .toggle > div,
+.contact:after {
+  @include borderColor;
+}
+
+.switch .toggle > div:before {
+  background: $foregroundColor;
+
+  .dark & {
+    background: $backgroundColor;
+  }
 }
