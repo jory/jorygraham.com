@@ -1,0 +1,27 @@
+$lightBlue: #c4e8e4;
+$blue: #0066ff;
+$blueGrey: #778899;
+
+$backgroundColor: $lightBlue;
+$foregroundColor: $blue;
+$highlightColor: $blueGrey;
+
+@mixin normalColor {
+  @include transition(background 1000ms, color 1000ms);
+
+  background: $backgroundColor;
+  color: $foregroundColor;
+
+  .dark &, &.dark {
+    background: $highlightColor !important;
+    color: $backgroundColor;
+  }
+}
+
+@mixin borderColor {
+  border-color: $foregroundColor;
+
+  .dark & {
+    border-color: $backgroundColor;
+  }
+}
