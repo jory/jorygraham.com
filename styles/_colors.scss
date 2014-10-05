@@ -25,3 +25,7 @@ $highlightColor: $blueGrey;
     border-color: $backgroundColor;
   }
 }
+
+html, body, a, .headshot, .twitter-widget, #timeline:after {
+  @include normalColor;
+}

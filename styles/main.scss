@@ -22,8 +22,6 @@ ul, li {
 }
 
 html, body, a {
-  @include normalColor;
-
   font-family: "omnes-pro";
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -49,8 +47,6 @@ html, body, a {
 }
 
 .headshot {
-  @include normalColor;
-
   width: 131px;
   height: 101px;
 
@@ -151,8 +147,6 @@ html, body, a {
 
   margin: 10px 0 0 10px;
 
-  @include normalColor;
-
   &:before {
     content: '';
 
@@ -187,8 +181,6 @@ html, body, a {
     left: 0;
     right: 0;
     bottom: 0;
-
-    @include normalColor;
   }
 
   &.loaded:after {
