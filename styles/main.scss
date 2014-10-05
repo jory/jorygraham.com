@@ -4,6 +4,12 @@
 
 @import "colors";
 
+@mixin wire {
+  height: 0px;
+  border-top: 3px dotted;
+  @include borderColor;
+}
+
 ::selection {
   background: $highlightColor;
   color: $backgroundColor;
@@ -34,15 +40,11 @@ html, body, a {
   margin-bottom: 2em;
 
   .wire {
-    height: 0px;
-
+    @include wire;
     position: absolute;
     top: 50%;
     right: 0%;
     left: 50%;
-
-    border-top: 3px dotted;
-    @include borderColor;
   }
 }
 
@@ -135,15 +137,11 @@ html, body, a {
   position: relative;
   z-index: 1;
   .wire {
-    height: 0px;
-
+    @include wire;
     position: absolute;
     top: 85%;
     right: 0%;
     left: 50%;
-
-    border-top: 3px dotted;
-    @include borderColor;
   }
 }
 
@@ -396,14 +394,10 @@ html, body, a {
     right: -1.5em;
 
     &:before {
+      @include wire;
       right: 100%;
       bottom: 70%;
-
       width: 115px;
-      height: 0px;
-
-      border-top: 3px dotted;
-      @include borderColor;
     }
   }
 
