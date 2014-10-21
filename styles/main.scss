@@ -180,7 +180,7 @@ html, body, a {
   margin-top: 1.5em;
   border: 3px solid;
 
-  div {
+  .title {
     text-transform: uppercase;
     border-bottom: 3px solid;
   }
@@ -375,4 +375,17 @@ html, body, a {
     left: -1em;
     margin-bottom: 0;
   }
+}
+
+.fallers {
+  position: relative;
+}
+
+span {
+  display: inline-block;
+}
+
+div.TEXT {
+  display: inline;
+  border: 0px;
 }
