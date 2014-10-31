@@ -1,13 +1,15 @@
 (function () {
+  'use strict';
+
   var spanners = require('spanners');
   var isDark = false;
 
   function changeTitle () {
-    var titles = ["I didn't know what to title this page.",
-                  "Rogueliker",
-                  "Mobile Web Developer",
-                  "Amateur Wordsmith",
-                  "Emacs Acolyte"];
+    var titles = ['I didn\'t know what to title this page.',
+                  'Rogueliker',
+                  'Mobile Web Developer',
+                  'Amateur Wordsmith',
+                  'Emacs Acolyte'];
 
     document.title = titles[Math.floor(Math.random() * titles.length)];
   }
@@ -27,7 +29,7 @@
     }
     link.setAttribute('href', href);
 
-    var oldLink = document.querySelector("link[rel='shortcut icon']");
+    var oldLink = document.querySelector('link[rel="shortcut icon"]');
     if (oldLink) {
       oldLink.parentNode.removeChild(oldLink);
     }
@@ -40,7 +42,7 @@
     for (var i = 0, l = images.length; i < l; i++) {
       images[i].classList.toggle('foreground');
     }
-  };
+  }
 
   var toggle = document.getElementsByClassName('toggle')[0];
 
