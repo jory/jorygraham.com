@@ -1,5 +1,6 @@
 (function () {
-  window.isDark = false;
+  var spanners = require('spanners');
+  var isDark = false;
 
   function changeTitle () {
     var titles = ["I didn't know what to title this page.",
@@ -63,39 +64,9 @@
 
     var fallers = document.getElementsByClassName('fallers');
 
-    var queue = fallers.reduce(function (output, faller) {
-      return output.concat(faller.children.slice());
-    }, []);
-
-    var item;
-
-    while (item = queue.pop()) {
-
-      // childNodes vs. children
-      // text nodes and empty tags.
-
-      console.log(item);
-
-      var childNodes = item.childNodes.slice();
-
-      childNodes.forEach(function (node) {
-        console.log(node);
-
-        switch (node.nodeType) {
-          case Node.TEXT_NODE: {
-            var div = document.createElement('div');
-            div.classList.add('TEXT');
-            div.innerHTML = node.textContent.replace(/(\S)/g, "<span>$1</span>");
-            item.replaceChild(div, node);
-            break;
-          }
-          default: {
-            queue.push(node);
-            break;
-          }
-        }
-      });
-    }
+    fallers.forEach(function (node) {
+      node.parentNode.replaceChild(spanners.squirrel(node), node);
+    });
 
     var spans = [];
 
