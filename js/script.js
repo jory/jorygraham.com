@@ -109,14 +109,21 @@
 
       var style = $spans[index].style;
       style.webkitTransform = 'translateY(' + delta + 'px)';
-      style.webkitTransition = '-webkit-transform ' + (innerHeight / delta) * totalTime + 'ms';
+      style.webkitTransition = '-webkit-transform ' + (delta / innerHeight) * totalTime + 'ms';
     });
   };
 
-  $spans.forEach(function(span, idx) {
-    $(span).on('mouseover', function() {
-      console.log("foo");
-      dropIt([idx]);
-    });
+  document.addEventListener('click', function () {
+    var all = _.shuffle(_.range($spans.length));
+
+    var dropOne = function () {
+      dropIt([all.shift()]);
+
+      if (all.length) {
+        setTimeout(dropOne, 200);
+      }
+    };
+
+    dropOne();
   });
 })();

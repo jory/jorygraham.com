@@ -20,6 +20,16 @@ $highlightColor: $blueGrey;
   }
 }
 
+@mixin foregroundColor {
+  @include transition(color 1000ms);
+
+  color: $foregroundColor;
+
+  .dark &, &.dark {
+    color: $backgroundColor;
+  }
+}
+
 @mixin borderColor {
   border-color: $foregroundColor;
 
@@ -41,8 +51,12 @@ $highlightColor: $blueGrey;
   color: $backgroundColor;
 }
 
-html, body, a, .headshot, .twitter-widget, #timeline:after {
+html, body, .headshot, .twitter-widget, #timeline:after {
   @include normalColor;
+}
+
+a {
+  @include foregroundColor;
 }
 
 .intro .column, .intro li,
