@@ -5,6 +5,7 @@
     "normalize-scss": "~2.1.0",
     "modernizr": "~2.6.2",
     "jquery": "~1.9.1",
-    "spanners": "git@github.com:jory/spanners.git"
+    "spanners": "git@github.com:jory/spanners.git",
+    "lodash": "~2.4.1"
   }
 }
