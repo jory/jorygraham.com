@@ -1,9 +1,6 @@
-/* global $,_ */
-
 (function () {
   'use strict';
 
-  var spanners = require('spanners');
   var isDark = false;
 
   function changeTitle () {
@@ -59,71 +56,5 @@
 
     var iframe = document.querySelector('iframe');
     iframe.contentDocument.defaultView.postMessage('dark', '*');
-  });
-
-    Object.prototype.forEach = Array.prototype.forEach;
-    Object.prototype.reduce = Array.prototype.reduce;
-    Object.prototype.slice = Array.prototype.slice;
-
-    var fallers = document.getElementsByClassName('fallers');
-
-    fallers.forEach(function (node) {
-      node.parentNode.replaceChild(spanners.squirrel(node), node);
-    });
-
-    var $spans = [];
-
-    for (var i = 0; i < fallers.length; ++i) {
-      var faller = fallers[i];
-      $spans = $spans.concat([].slice.call(faller.getElementsByTagName('span')));
-    }
-
-
-  var positions = _.map($spans, function (span) {
-    var $span = $(span);
-
-    var offset = $span.offset();
-
-    offset.width = $span.width();
-    offset.height = $span.height();
-
-    offset.right = offset.left + offset.width;
-
-    return offset;
-  });
-
-  var innerHeight = window.innerHeight;
-  var totalTime = 5000;
-
-  var dropIt = function(set) {
-    _(set).each(function(index) {
-      var position = positions[index];
-
-      if (position.falling) {
-        return;
-      }
-
-      position.falling = true;
-
-      var delta = innerHeight - (position.top + position.height);
-
-      var style = $spans[index].style;
-      style.webkitTransform = 'translateY(' + delta + 'px)';
-      style.webkitTransition = '-webkit-transform ' + (delta / innerHeight) * totalTime + 'ms';
-    });
-  };
-
-  document.addEventListener('click', function () {
-    var all = _.shuffle(_.range($spans.length));
-
-    var dropOne = function () {
-      dropIt([all.shift()]);
-
-      if (all.length) {
-        setTimeout(dropOne, 200);
-      }
-    };
-
-    dropOne();
   });
 })();
