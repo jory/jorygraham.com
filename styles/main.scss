@@ -285,12 +285,16 @@ html, body, a {
 
         width: 4px;
         height: 3px;
-
-        .dark & {
-          top: 5px;
-        }
       }
     }
+  }
+
+  .dark &.lights .toggle > div:before {
+    top: 5px;
+  }
+
+  &.danger.dripping .toggle > div:before {
+    top: 5px;
   }
 }
 
