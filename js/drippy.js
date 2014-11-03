@@ -84,7 +84,8 @@
 
       clearTimeout(timeOut);
 
-      $spans.forEach(function (span) {
+      $spans.forEach(function (span, idx) {
+        positions[idx].falling = false;
         span.style.webkitTransform = '';
       });
     }
