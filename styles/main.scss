@@ -208,23 +208,29 @@ html, body, a {
 .switch {
   position: absolute;
   top: 1.5em;
-  right: 2em;
 
-  &:before {
-    content: "";
+  &.lights {
+    right: 2em;
 
-    position: absolute;
-    right: 30%;
-    bottom: 100%;
+    &:before {
+      content: "";
 
-    width: 0px;
-    height: 3em;
+      position: absolute;
+      right: 30%;
+      bottom: 100%;
 
-    border-left: 3px dotted;
+      width: 0px;
+      height: 3em;
+
+      border-left: 3px dotted;
+    }
+  }
+
+  &.danger {
+    right: 0em;
   }
 
   .toggle-label {
-    width: 20px;
     text-transform: uppercase;
 
     &.invert {
