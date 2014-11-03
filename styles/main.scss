@@ -368,11 +368,13 @@ html, body, a {
     position: relative;
     right: -1.5em;
 
-    &:before {
-      @include wire;
-      right: 100%;
-      bottom: 70%;
-      width: 115px;
+    &.lights {
+      &:before {
+        @include wire;
+        right: 100%;
+        bottom: 70%;
+        width: 115px;
+      }
     }
   }
 

@@ -26,8 +26,6 @@
     $spans = $spans.concat(toArray(faller.getElementsByTagName('span')));
   }
 
-  console.log($spans);
-
   var positions = _.map($spans, function (span) {
     var $span = $(span);
 
@@ -73,7 +71,7 @@
     var dropOne = function () {
       if (all.length) {
         dropIt([all.shift()]);
-        setTimeout(dropOne, 200);
+        setTimeout(dropOne, 50);
       }
     };
 
