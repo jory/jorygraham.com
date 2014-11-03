@@ -40,11 +40,9 @@
   });
 
   var innerHeight = window.innerHeight;
-  var totalTime = 5000;
+  var totalTime = 2000;
 
   var dropIt = function(set) {
-    console.log(set);
-
     _(set).each(function(index) {
       var position = positions[index];
 
@@ -63,18 +61,32 @@
   };
 
   var danger = document.getElementsByClassName('danger')[0];
+  var timeOut;
+
   danger.addEventListener('click', function () {
-    isFalling = true;
 
-    var all = _.shuffle(_.range($spans.length));
+    danger.classList.toggle('dripping');
 
-    var dropOne = function () {
-      if (all.length) {
-        dropIt([all.shift()]);
-        setTimeout(dropOne, 50);
-      }
-    };
+    if ( ! isFalling ) {
+      isFalling = true;
 
-    dropOne();
+      var all = _.shuffle(_.range($spans.length));
+      var dropOne = function () {
+        if (all.length) {
+          dropIt([all.shift()]);
+          timeOut = setTimeout(dropOne, 50);
+        }
+      };
+      dropOne();
+
+    } else {
+      isFalling = false;
+
+      clearTimeout(timeOut);
+
+      $spans.forEach(function (span) {
+        span.style.webkitTransform = '';
+      });
+    }
   });
 })();

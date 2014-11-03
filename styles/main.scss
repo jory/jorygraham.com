@@ -236,14 +236,23 @@ html, body, a {
     &.invert {
       display: none;
     }
+  }
 
-    .dark & {
+  .dark .lights .toggle-label {
       &.invert {
         display: block;
       }
       &.normal {
         display: none;
       }
+  }
+
+  &.danger.dripping .toggle-label {
+    &.invert {
+      display: block;
+    }
+    &.normal {
+      display: none;
     }
   }
 
