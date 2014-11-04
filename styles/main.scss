@@ -256,7 +256,7 @@ html, body, a {
     }
   }
 
-  .dark .lights .toggle-label {
+  .dark &.lights .toggle-label {
       &.invert {
         display: block;
       }
