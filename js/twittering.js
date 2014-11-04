@@ -29,7 +29,8 @@ window.twttr.ready(function (twttr) {
       /* jshint ignore:start */
       style.innerHTML = "\
 ::selection { background: #778899 !important; color: #c4e8e4; }\
-* { font-family: 'omnes-pro' !important; color: #0066ff !important; }\
+* { font-family: 'omnes-pro' !important; color: #0066ff !important; \
+  -moz-transition: color 1000ms; -o-transition: color 1000ms; -webkit-transition: color 1000ms; transition: color 1000ms; }\
 .dark * { color: #c4e8e4 !important; }\
 .avatar, .full-name, .permalink, .p-nickname:before,\
 .footer, .tweet .retweet-credit, .inline-media { display: none; }\
