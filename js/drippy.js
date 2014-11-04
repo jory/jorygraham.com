@@ -48,8 +48,16 @@
       position.falling = true;
 
       var style = $spans[index].style;
+
+      style.mozTransform = 'translateY(' + position.delta + 'px)';
+      style.msTransform = 'translateY(' + position.delta + 'px)';
       style.webkitTransform = 'translateY(' + position.delta + 'px)';
+      style.transform = 'translateY(' + position.delta + 'px)';
+
+      style.mozTransition = '-moz-transform ' + position.duration + 'ms';
+      style.msTransition = '-ms-transform ' + position.duration + 'ms';
       style.webkitTransition = '-webkit-transform ' + position.duration + 'ms';
+      style.transition = 'transform ' + position.duration + 'ms';
     });
   };
 
