@@ -27,20 +27,15 @@
   }
 
   var positions = _.map($spans, function (span) {
-    var $span = $(span);
+    var parentHeight = span.offsetParent.getBoundingClientRect().height;
+    var delta = parentHeight - (span.offsetTop + span.getBoundingClientRect().height);
 
-    var offset = $span.offset();
-
-    offset.width = $span.width();
-    offset.height = $span.height();
-
-    offset.right = offset.left + offset.width;
-
-    return offset;
+    return {
+      falling: false,
+      delta: delta,
+      duration: (delta / parentHeight) * 500
+    };
   });
-
-  var innerHeight = window.innerHeight;
-  var totalTime = 2000;
 
   var dropIt = function(set) {
     _(set).each(function(index) {
@@ -52,11 +47,9 @@
 
       position.falling = true;
 
-      var delta = innerHeight - (position.top + position.height);
-
       var style = $spans[index].style;
-      style.webkitTransform = 'translateY(' + delta + 'px)';
-      style.webkitTransition = '-webkit-transform ' + (delta / innerHeight) * totalTime + 'ms';
+      style.webkitTransform = 'translateY(' + position.delta + 'px)';
+      style.webkitTransition = '-webkit-transform ' + position.duration + 'ms';
     });
   };
 
