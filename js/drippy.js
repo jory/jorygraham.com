@@ -1,4 +1,4 @@
-/* global $,_ */
+/* global _ */
 
 (function () {
   'use strict';
@@ -19,14 +19,14 @@
      this code was in script.js */
 
   fallers = toArray(document.getElementsByClassName('fallers'));
-  var $spans = [];
+  var spans = [];
 
   for (var i = 0; i < fallers.length; ++i) {
     var faller = fallers[i];
-    $spans = $spans.concat(toArray(faller.getElementsByTagName('span')));
+    spans = spans.concat(toArray(faller.getElementsByTagName('span')));
   }
 
-  var positions = _.map($spans, function (span) {
+  var positions = _.map(spans, function (span) {
     var parentHeight = span.offsetParent.offsetHeight;
     var delta = parentHeight - (span.offsetTop + span.offsetHeight);
 
@@ -37,28 +37,26 @@
     };
   });
 
-  var dropIt = function(set) {
-    _(set).each(function(index) {
-      var position = positions[index];
+  var dropIt = function(index) {
+    var position = positions[index];
 
-      if (position.falling) {
-        return;
-      }
+    if (position.falling) {
+      return;
+    }
 
-      position.falling = true;
+    position.falling = true;
 
-      var style = $spans[index].style;
+    var style = spans[index].style;
 
-      style.mozTransform = 'translateY(' + position.delta + 'px)';
-      style.msTransform = 'translateY(' + position.delta + 'px)';
-      style.webkitTransform = 'translateY(' + position.delta + 'px)';
-      style.transform = 'translateY(' + position.delta + 'px)';
+    style.mozTransform = 'translateY(' + position.delta + 'px)';
+    style.msTransform = 'translateY(' + position.delta + 'px)';
+    style.webkitTransform = 'translateY(' + position.delta + 'px)';
+    style.transform = 'translateY(' + position.delta + 'px)';
 
-      style.mozTransition = '-moz-transform ' + position.duration + 'ms';
-      style.msTransition = '-ms-transform ' + position.duration + 'ms';
-      style.webkitTransition = '-webkit-transform ' + position.duration + 'ms';
-      style.transition = 'transform ' + position.duration + 'ms';
-    });
+    style.mozTransition = '-moz-transform ' + position.duration + 'ms';
+    style.msTransition = '-ms-transform ' + position.duration + 'ms';
+    style.webkitTransition = '-webkit-transform ' + position.duration + 'ms';
+    style.transition = 'transform ' + position.duration + 'ms';
   };
 
   var danger = document.getElementsByClassName('danger')[0];
@@ -71,10 +69,10 @@
     if ( ! isFalling ) {
       isFalling = true;
 
-      var all = _.shuffle(_.range($spans.length));
+      var all = _.shuffle(_.range(spans.length));
       var dropOne = function () {
         if (all.length) {
-          dropIt([all.shift()]);
+          dropIt(all.shift());
           timeOut = setTimeout(dropOne, 50);
         }
       };
@@ -85,9 +83,14 @@
 
       clearTimeout(timeOut);
 
-      $spans.forEach(function (span, idx) {
+      spans.forEach(function (span, idx) {
         positions[idx].falling = false;
-        span.style.webkitTransform = '';
+
+        var style = span.style;
+        style.mozTransform = '';
+        style.msTransform = '';
+        style.webkitTransform = '';
+        style.transform = '';
       });
     }
   });
