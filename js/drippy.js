@@ -27,8 +27,8 @@
   }
 
   var positions = _.map($spans, function (span) {
-    var parentHeight = span.offsetParent.getBoundingClientRect().height;
-    var delta = parentHeight - (span.offsetTop + span.getBoundingClientRect().height);
+    var parentHeight = span.offsetParent.offsetHeight;
+    var delta = parentHeight - (span.offsetTop + span.offsetHeight);
 
     return {
       falling: false,
