@@ -7,24 +7,26 @@
   var toArray = Function.call.bind(Array.prototype.slice);
 
   var html = document.querySelector('html');
-  var height = html.getBoundingClientRect().height;
-
-  console.log(height);
+  var height;
 
   var isFalling = false;
   var timeOut;
 
+  var danger = document.getElementsByClassName('danger')[0];
+
   var calculateDrop = function (span, isFalling) {
+
+    // getBoundingClientRect is viewport relative, so scrolling can
+    // also impact it.
+
     var delta = height - (span.getBoundingClientRect().top + span.offsetHeight);
 
     var drop = {
       isFalling: isFalling,
       delta: delta,
-      duration: (delta / height) * 500,
+      duration: 2000,
       span: span
     };
-
-    console.log(drop);
 
     return drop;
   };
@@ -61,6 +63,19 @@
     applyStyles(drop);
   };
 
+  var reset = function () {
+    danger.classList.remove('dripping');
+
+    isFalling = false;
+
+    window.clearTimeout(timeOut);
+
+    drops.forEach(function (drop, idx) {
+      drop.falling = false;
+      clearStyles(drop);
+    });
+  };
+
   //////////////////////////////////////////
 
   var fallers = toArray(document.getElementsByClassName('fallers'));
@@ -79,35 +94,28 @@
     spans = spans.concat(toArray(faller.getElementsByTagName('span')));
   });
 
-  var drops = spans.map(function (span) {
-    return calculateDrop(span, false);
-  });
+  var drops = [];
 
   window.addEventListener('resize', _.debounce(function (event) {
-
     height = html.getBoundingClientRect().height;
-
-    console.log(height);
-
+    reset();
     drops = drops.map(function (drop) {
-      drop = calculateDrop(drop.span, drop.isFalling);
-
-      if (drop.isFalling) {
-        applyStyles(drop);
-      }
-
-      return drop;
+      return calculateDrop(drop.span, drop.isFalling);
     });
   }, 200, { trailing: true }));
 
-  var danger = document.getElementsByClassName('danger')[0];
-
   danger.addEventListener('click', function () {
 
-    danger.classList.toggle('dripping');
-
     if ( ! isFalling ) {
+      danger.classList.add('dripping');
+
       isFalling = true;
+
+      height = html.getBoundingClientRect().height;
+
+      drops = spans.map(function (span) {
+        return calculateDrop(span, false);
+      });
 
       var all = _.shuffle(_.range(drops.length));
 
@@ -121,14 +129,7 @@
       dropOne();
 
     } else {
-      isFalling = false;
-
-      window.clearTimeout(timeOut);
-
-      drops.forEach(function (drop, idx) {
-        drop.falling = false;
-        clearStyles(drop);
-      });
+      reset();
     }
   });
 })();
