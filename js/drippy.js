@@ -70,7 +70,7 @@
 
     window.clearTimeout(timeOut);
 
-    drops.forEach(function (drop, idx) {
+    drops.forEach(function (drop) {
       drop.falling = false;
       clearStyles(drop);
     });
@@ -96,7 +96,7 @@
 
   var drops = [];
 
-  window.addEventListener('resize', _.debounce(function (event) {
+  window.addEventListener('resize', _.debounce(function () {
     height = html.getBoundingClientRect().height;
     reset();
     drops = drops.map(function (drop) {
