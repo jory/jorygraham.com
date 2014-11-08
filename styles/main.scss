@@ -366,6 +366,10 @@ html, body, a {
 }
 
 @media screen and (min-width: 746px) {
+  html {
+    height: 100%;
+  }
+
   body {
     width: 746px;
     height: 420px;
@@ -432,9 +436,4 @@ html, body, a {
 
 span {
   display: inline-block;
-}
-
-div.TEXT {
-  display: inline;
-  border: 0px;
 }

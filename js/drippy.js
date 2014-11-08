@@ -6,10 +6,64 @@
   var spanners = require('spanners');
   var toArray = Function.call.bind(Array.prototype.slice);
 
+  var html = document.querySelector('html');
+  var height = html.getBoundingClientRect().height;
+
+  console.log(height);
+
   var isFalling = false;
+  var timeOut;
+
+  var calculateDrop = function (span, isFalling) {
+    var delta = height - (span.getBoundingClientRect().top + span.offsetHeight);
+
+    var drop = {
+      isFalling: isFalling,
+      delta: delta,
+      duration: (delta / height) * 500,
+      span: span
+    };
+
+    console.log(drop);
+
+    return drop;
+  };
+
+  var applyStyles = function (drop) {
+    var style = drop.span.style;
+
+    var transform = 'translateY(' + drop.delta + 'px)';
+
+    style.mozTransform = transform;
+    style.msTransform = transform;
+    style.webkitTransform = transform;
+    style.transform = transform;
+
+    var transition = 'transform ' + drop.duration + 'ms';
+
+    style.mozTransition = '-moz-' + transition;
+    style.msTransition = '-ms-' + transition;
+    style.webkitTransition = '-webkit-' + transition;
+    style.transition = transition;
+  };
+
+  var clearStyles = function (drop) {
+    var style = drop.span.style;
+    style.mozTransform = '';
+    style.msTransform = '';
+    style.webkitTransform = '';
+    style.transform = '';
+  };
+
+  var dropIt = function (drop) {
+    if (drop.falling) { return; }
+    drop.falling = true;
+    applyStyles(drop);
+  };
+
+  //////////////////////////////////////////
 
   var fallers = toArray(document.getElementsByClassName('fallers'));
-
   fallers.forEach(function (node) {
     node.parentNode.replaceChild(spanners.squirrel(node), node);
   });
@@ -19,48 +73,34 @@
      this code was in script.js */
 
   fallers = toArray(document.getElementsByClassName('fallers'));
+
   var spans = [];
-
-  for (var i = 0; i < fallers.length; ++i) {
-    var faller = fallers[i];
+  fallers.forEach(function (faller) {
     spans = spans.concat(toArray(faller.getElementsByTagName('span')));
-  }
-
-  var positions = _.map(spans, function (span) {
-    var parentHeight = span.offsetParent.offsetHeight;
-    var delta = parentHeight - (span.offsetTop + span.offsetHeight);
-
-    return {
-      falling: false,
-      delta: delta,
-      duration: (delta / parentHeight) * 500
-    };
   });
 
-  var dropIt = function(index) {
-    var position = positions[index];
+  var drops = spans.map(function (span) {
+    return calculateDrop(span, false);
+  });
 
-    if (position.falling) {
-      return;
-    }
+  window.addEventListener('resize', _.debounce(function (event) {
 
-    position.falling = true;
+    height = html.getBoundingClientRect().height;
 
-    var style = spans[index].style;
+    console.log(height);
 
-    style.mozTransform = 'translateY(' + position.delta + 'px)';
-    style.msTransform = 'translateY(' + position.delta + 'px)';
-    style.webkitTransform = 'translateY(' + position.delta + 'px)';
-    style.transform = 'translateY(' + position.delta + 'px)';
+    drops = drops.map(function (drop) {
+      drop = calculateDrop(drop.span, drop.isFalling);
 
-    style.mozTransition = '-moz-transform ' + position.duration + 'ms';
-    style.msTransition = '-ms-transform ' + position.duration + 'ms';
-    style.webkitTransition = '-webkit-transform ' + position.duration + 'ms';
-    style.transition = 'transform ' + position.duration + 'ms';
-  };
+      if (drop.isFalling) {
+        applyStyles(drop);
+      }
+
+      return drop;
+    });
+  }, 200, { trailing: true }));
 
   var danger = document.getElementsByClassName('danger')[0];
-  var timeOut;
 
   danger.addEventListener('click', function () {
 
@@ -69,28 +109,25 @@
     if ( ! isFalling ) {
       isFalling = true;
 
-      var all = _.shuffle(_.range(spans.length));
+      var all = _.shuffle(_.range(drops.length));
+
       var dropOne = function () {
         if (all.length) {
-          dropIt(all.shift());
-          timeOut = setTimeout(dropOne, 50);
+          dropIt(drops[all.shift()]);
+          timeOut = window.setTimeout(dropOne, 50);
         }
       };
+
       dropOne();
 
     } else {
       isFalling = false;
 
-      clearTimeout(timeOut);
+      window.clearTimeout(timeOut);
 
-      spans.forEach(function (span, idx) {
-        positions[idx].falling = false;
-
-        var style = span.style;
-        style.mozTransform = '';
-        style.msTransform = '';
-        style.webkitTransform = '';
-        style.transform = '';
+      drops.forEach(function (drop, idx) {
+        drop.falling = false;
+        clearStyles(drop);
       });
     }
   });
