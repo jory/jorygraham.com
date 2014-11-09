@@ -97,11 +97,14 @@
   var drops = [];
 
   window.addEventListener('resize', _.debounce(function () {
-    height = html.getBoundingClientRect().height;
-    reset();
-    drops = drops.map(function (drop) {
-      return calculateDrop(drop.span, drop.isFalling);
-    });
+    var currentHeight = html.getBoundingClientRect().height;
+    if (height !== currentHeight) {
+      height = currentHeight;
+      reset();
+      drops = drops.map(function (drop) {
+        return calculateDrop(drop.span, drop.isFalling);
+      });
+    }
   }, 200, { trailing: true }));
 
   danger.addEventListener('click', function () {
