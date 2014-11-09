@@ -54,15 +54,15 @@ html, body, a {
   position: relative;
   left: -10px;
 
-  // TODO: Add masking to all the preprocessors, and also blog about
-  //  it.
-  -webkit-mask: url('../img/circle.svg') 50% 50% no-repeat;
-  mask: url('../img/circle-mask.svg#mask');
-
   img {
     position: absolute;
-    top: -33px;
+    top: -25px;
     left: -25px;
+
+    // TODO: Add masking to all the preprocessors, and also blog about
+    //  it.
+    -webkit-mask: url('../img/circle.svg') 50% 50% no-repeat;
+    mask: url('../img/circle-mask.svg#mask');
 
     @include transition(opacity 1000ms);
 
