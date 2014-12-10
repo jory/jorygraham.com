@@ -2,7 +2,33 @@
 @import "compass/css3/transition";
 @import "compass/css3/transform";
 
-@import "colors";
+$lightBlue: #c4e8e4;
+$blue: #0066ff;
+$blueGrey: #778899;
+
+$backgroundColor: $lightBlue;
+$foregroundColor: $blue;
+$highlightColor: $blueGrey;
+
+@mixin normalColor {
+  @include transition(background 1000ms, color 1000ms);
+
+  background: $backgroundColor;
+  color: $foregroundColor;
+
+  .dark &, &.dark {
+    background: $highlightColor !important;
+    color: $backgroundColor;
+  }
+}
+
+@mixin borderColor {
+  border-color: $foregroundColor;
+
+  .dark & {
+    border-color: $backgroundColor;
+  }
+}
 
 @mixin wire {
   height: 0px;
@@ -22,6 +48,8 @@ ul, li {
 }
 
 html, body, a {
+  @include normalColor;
+
   font-family: "omnes-pro";
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -47,6 +75,8 @@ html, body, a {
 }
 
 .headshot {
+  @include normalColor;
+
   width: 131px;
   height: 101px;
 
@@ -56,8 +86,8 @@ html, body, a {
 
   img {
     position: absolute;
-    top: -25px;
-    left: -25px;
+    top: 0;
+    left: 10px;
 
     // TODO: Add masking to all the preprocessors, and also blog about
     //  it.
@@ -147,6 +177,8 @@ html, body, a {
 
   margin: 10px 0 0 10px;
 
+  @include normalColor;
+
   &:before {
     content: '';
 
@@ -182,6 +214,7 @@ html, body, a {
     right: 0;
     bottom: 0;
 
+    @include normalColor;
   }
 
   &.loaded:after {
