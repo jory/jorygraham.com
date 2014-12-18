@@ -132,7 +132,7 @@ module.exports = function (grunt) {
           src: [
             'build/js/{,*/}*.js',
             'build/styles/{,*/}*.css',
-            'build/img/{,*/}*.{png,jpg,jpeg,gif,webp}',
+            'build/img/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
             'build/styles/fonts/*'
           ]
         }
@@ -149,7 +149,8 @@ module.exports = function (grunt) {
         dirs: ['build']
       },
       html: ['build/{,*/}*.html'],
-      css: ['build/styles/{,*/}*.css']
+      css: ['build/styles/{,*/}*.css'],
+      svg: ['build/{,*/}*.svg']
     },
     imagemin: {
       dist: {
