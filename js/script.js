@@ -37,7 +37,7 @@
   }
 
   function changeImage () {
-    var images = document.querySelectorAll('.headshot img');
+    var images = document.querySelectorAll('.headshot object, .headshot img');
     for (var i = 0, l = images.length; i < l; i++) {
       images[i].classList.toggle('foreground');
     }
