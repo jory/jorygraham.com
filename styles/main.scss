@@ -472,3 +472,18 @@ html, body, a {
 span {
   display: inline-block;
 }
+
+#resume {
+  h2, h3, b {
+    text-transform: uppercase;
+  }
+}
+
+.contact-information {
+  h1 {
+    margin-bottom: 0;
+  }
+  h3 {
+    margin-top: 0;
+  }
+}
