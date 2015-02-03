@@ -1,0 +1,427 @@
+#index {
+  a {
+    @include normalColor;
+  }
+
+  @include normalColor;
+
+  font-family: "omnes-pro";
+  font-weight: 500;
+  letter-spacing: 0.05em;
+
+  text-align: center;
+}
+
+.left-column {
+  margin-top: 2em;
+}
+
+.headcase {
+  position: relative;
+  margin-bottom: 2em;
+
+  .wire {
+    @include wire;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    left: 50%;
+  }
+}
+
+.headshot {
+  @include normalColor;
+
+  width: 131px;
+  height: 101px;
+
+  margin: auto;
+  position: relative;
+  left: -10px;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 10px;
+
+    // TODO: Add masking to all the preprocessors, and also blog about
+    //  it.
+    -webkit-mask: url('../img/circle.svg') 50% 50% no-repeat;
+    mask: url('../img/circle-mask.svg#mask');
+
+    @include transition(opacity 1000ms);
+
+    opacity: 0;
+
+    &.foreground {
+      opacity: 1;
+    }
+  }
+}
+
+.intro, .likes, .switchBox {
+  position: relative;
+  max-width: 256px;
+  margin: 0 auto 2em;
+}
+
+.intro {
+  text-transform: uppercase;
+  line-height: 1.7em;
+
+  .column {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+
+    border: 3px solid;
+    @include borderColor;
+
+    &:first-child {
+      left: 0;
+      border-right: none;
+    }
+
+    &:last-child {
+      right: 0;
+      border-left: none;
+    }
+
+    width: 10px;
+  }
+
+  ul {
+    margin: 0 10px;
+    padding: 0 5px 10px;
+  }
+
+  li  {
+    border-bottom: 2px dotted;
+    @include borderColor;
+  }
+}
+
+.likes {
+  background: url('../img/hex.svg') 50% 50% no-repeat;
+  background-size: contain;
+
+  .dark & {
+    background-image: url('../img/hex-dark.svg');
+  }
+
+  ul {
+    padding: 20px;
+  }
+}
+
+.twitter {
+  position: relative;
+  z-index: 1;
+  .wire {
+    @include wire;
+    position: absolute;
+    top: 85%;
+    right: 0%;
+    left: 50%;
+  }
+}
+
+.twitter-widget {
+  display: inline-block;
+  position: relative;
+
+  margin: 10px 0 0 10px;
+
+  @include normalColor;
+
+  &:before {
+    content: '';
+
+    width: 100%;
+    height: 100%;
+
+    position: absolute;
+    top: -10px;
+    left: -10px;
+
+    z-index: -1;
+
+    border: 3px solid;
+    @include borderColor;
+  }
+}
+
+#timeline {
+  width: 250px;
+  height: 400px;
+
+  border: 3px solid;
+  @include borderColor;
+
+  position: relative;
+  overflow: hidden;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    @include normalColor;
+  }
+
+  &.loaded:after {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.links {
+  width: 140px;
+  margin-top: 1.5em;
+  border: 3px solid;
+  @include borderColor;
+
+  .title {
+    text-transform: uppercase;
+    border-bottom: 3px solid;
+    @include borderColor;
+  }
+
+  ul {
+    padding: 0.3em 0;
+  }
+
+  li {
+    font-size: 0.7em;
+    list-style-position: inside;
+    list-style-type: disc;
+
+    padding-left: 1em;
+
+    text-align: left;
+  }
+
+  a {
+    font-size: 1rem;
+    text-decoration: none;
+  }
+}
+
+.switch {
+  position: absolute;
+  top: 1.5em;
+
+  &.lights {
+    right: 2em;
+
+    &:before {
+      content: "";
+
+      position: absolute;
+      right: 30%;
+      bottom: 100%;
+
+      width: 0px;
+      height: 3em;
+
+      border-left: 3px dotted;
+      @include borderColor;
+    }
+  }
+
+  &.danger {
+    right: 0em;
+  }
+
+  .toggle-label {
+    text-transform: uppercase;
+
+    &.invert {
+      display: none;
+    }
+  }
+
+  .dark &.lights .toggle-label {
+      &.invert {
+        display: block;
+      }
+      &.normal {
+        display: none;
+      }
+  }
+
+  &.danger.dripping .toggle-label {
+    &.invert {
+      display: block;
+    }
+    &.normal {
+      display: none;
+    }
+  }
+
+  .toggle {
+    position: relative;
+
+    width: 20px;
+    height: 30px;
+
+    border: 3px solid;
+    @include borderColor;
+
+    cursor: pointer;
+
+    > div {
+      width: 4px;
+      height: 12px;
+
+      position: absolute;
+      top: 5px;
+      left: 5px;
+
+      border: 3px solid;
+      @include borderColor;
+
+      &:before {
+        content: "";
+
+        position: absolute;
+        top: 3px;
+        left: 0px;
+
+        width: 4px;
+        height: 3px;
+
+        background: $foregroundColor;
+      }
+    }
+  }
+
+  .dark &.lights .toggle > div:before {
+    top: 5px;
+    background: $backgroundColor;
+  }
+
+  .dark &.danger .toggle > div:before {
+    background: $backgroundColor;
+  }
+
+  &.danger.dripping .toggle > div:before {
+    top: 5px;
+  }
+}
+
+.switchBox {
+  margin-bottom: 3em;
+}
+
+.contact {
+  display: block;
+  position: relative;
+
+  width: 90px;
+  height: 90px;
+
+  margin: 0 auto 4em;
+
+  letter-spacing: 0.07em;
+
+  div:first-child {
+    padding-top: 0.5em;
+  }
+
+  a  {
+    letter-spacing: 0.07em;
+    line-height: 1.3em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    border: 3px solid;
+    @include borderColor;
+    @include transform(rotate(45deg));
+    pointer-events: none;
+  }
+}
+
+@media screen and (min-width: 746px) {
+  html {
+    height: 100%;
+  }
+
+  body {
+    width: 746px;
+    height: 420px;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    margin: auto;
+  }
+
+  .headcase .wire {
+    right: -10%;
+  }
+
+  .left-column {
+    position: absolute;
+    width: 266px;
+    margin-top: 0;
+  }
+
+  .right-column {
+    position: absolute;
+    width: 160px;
+    right: 0;
+  }
+
+  .twitter .wire {
+    display: none;
+  }
+
+  .twitter-widget {
+    position: absolute;
+    left: 292px;
+  }
+
+  .switch {
+    display: inline-block;
+    position: relative;
+    right: -1.5em;
+
+    &.lights {
+      &:before {
+        @include wire;
+        right: 100%;
+        bottom: 70%;
+        width: 115px;
+      }
+    }
+  }
+
+  .contact {
+    position: relative;
+    left: -1em;
+    margin-bottom: 0;
+  }
+}
+
+.fallers {
+  position: relative;
+}
+
+span {
+  display: inline-block;
+}
