@@ -47,19 +47,17 @@ ul, li {
   padding: 0;
 }
 
-body {
+#index {
+  a {
+    @include normalColor;
+  }
+
   @include normalColor;
 
   font-family: "omnes-pro";
   font-weight: 500;
   letter-spacing: 0.05em;
-}
 
-a {
-  @include normalColor;
-}
-
-#index {
   text-align: center;
 }
 
