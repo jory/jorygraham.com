@@ -39,15 +39,10 @@
   position: relative;
   left: -10px;
 
-  img {
+  img, obj {
     position: absolute;
     top: 0;
     left: 10px;
-
-    // TODO: Add masking to all the preprocessors, and also blog about
-    //  it.
-    -webkit-mask: url('../img/circle.svg') 50% 50% no-repeat;
-    mask: url('../img/circle-mask.svg#mask');
 
     @include transition(opacity 1000ms);
 
