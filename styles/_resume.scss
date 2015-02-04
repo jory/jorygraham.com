@@ -85,19 +85,28 @@ $accent: #8fd7f1;
 }
 
 @media screen and (min-width: 746px) {
-  .education, .technical-skills {
+  #resume {
+    margin: 2%;
+  }
+
+  .contact-information > div, .education, .technical-skills {
     display: inline-block;
     width: 48%;
     vertical-align: top;
   }
 
-  .technical-skills {
-    float: right;
+  .contact-information div {
+    span, a {
+      float: none;
+    }
+  }
+
+  .work-experience, .projects {
+    width: 96%;
   }
 
   .work-experience {
     clear: both;
-
     h4 {
       display: inline;
     }
