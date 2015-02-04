@@ -22,7 +22,7 @@ $accent: #8fd7f1;
     border-bottom: 2px solid $accent;
   }
 
-  h3, h4, h5, b {
+  h3, h4, h5 {
     text-transform: uppercase;
   }
 
@@ -41,6 +41,11 @@ $accent: #8fd7f1;
     margin-top: 0.5em;
     margin-bottom: 1em;
     letter-spacing: 0.05em;
+  }
+
+  h5 {
+    display: inline;
+    margin-top: 0;
   }
 
   div {
