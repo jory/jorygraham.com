@@ -27,6 +27,7 @@ $accent: #8fd7f1;
 
   h3 {
     font-weight: 100;
+    letter-spacing: 0.05em;
     border-bottom: 2px solid $accent;
   }
 
@@ -36,4 +37,11 @@ $accent: #8fd7f1;
 }
 
 .contact-information {
+  div {
+    clear: both;
+    span, a {
+      float: right;
+      font-size: smaller;
+    }
+  }
 }
