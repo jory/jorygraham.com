@@ -95,7 +95,10 @@ $accent: #8fd7f1;
     }
   }
 
-  .contact-information > div, .education, .technical-skills {
+  .contact-information > div,
+  .education,
+  .technical-skills,
+  .projects > div {
     display: inline-block;
     width: 48%;
     vertical-align: top;
@@ -122,5 +125,10 @@ $accent: #8fd7f1;
     h4 {
       display: inline;
     }
+  }
+
+  #resume h5.open-source {
+    display: block;
+    margin: 0;
   }
 }
