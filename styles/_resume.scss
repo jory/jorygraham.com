@@ -1,0 +1,67 @@
+$accent: #8fd7f1;
+
+#resume {
+  margin: 8px;
+
+  h1 {
+    margin: 0;
+    font-size: 2.25em;
+    font-weight: 100;
+    letter-spacing: 0.03em;
+  }
+
+  h4 {
+    margin-top: 0.5em;
+    letter-spacing: 0.05em;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h3 {
+    font-weight: 100;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid $accent;
+  }
+
+  h3, h4, h5, b {
+    text-transform: uppercase;
+  }
+
+  h5 {
+    margin-bottom: 0.5em;
+  }
+
+  li {
+    line-height: 1.2em;
+  }
+}
+
+.contact-information {
+  div {
+    clear: both;
+    span, a {
+      float: right;
+      font-size: smaller;
+    }
+  }
+}
+
+.education {
+  div {
+    line-height: 1.2em;
+  }
+}
+
+.technicall-skills {
+  h5, span {
+    display: inline;
+  }
+
+  div {
+    margin-bottom: 0.5em;
+    line-height: 1.2em;
+  }
+}
