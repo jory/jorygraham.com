@@ -63,7 +63,7 @@ $accent: #8fd7f1;
   }
 }
 
-.technicall-skills, .projects {
+.technical-skills, .projects {
   h5, span {
     display: inline;
   }
@@ -80,6 +80,18 @@ $accent: #8fd7f1;
   }
 
   .date {
+    float: right;
+  }
+}
+
+@media screen and (min-width: 746px) {
+  .education, .technical-skills {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+  }
+
+  .technical-skills {
     float: right;
   }
 }
