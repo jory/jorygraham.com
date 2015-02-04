@@ -32,7 +32,16 @@ $accent: #8fd7f1;
 
   li {
     font-size: 0.95em;
-    line-height: 1.2em;
+  }
+}
+
+#resume li {
+  line-height: 1.25em;
+}
+
+.education, .technical-skills, .projects {
+  div {
+    line-height: 1.25em;
   }
 }
 
@@ -57,12 +66,6 @@ $accent: #8fd7f1;
   }
 }
 
-.education {
-  div {
-    line-height: 1.2em;
-  }
-}
-
 .technical-skills, .projects {
   h5, span {
     display: inline;
@@ -70,7 +73,6 @@ $accent: #8fd7f1;
 
   div {
     margin-bottom: 0.5em;
-    line-height: 1.2em;
   }
 }
 
@@ -87,6 +89,10 @@ $accent: #8fd7f1;
 @media screen and (min-width: 746px) {
   #resume {
     margin: 2%;
+  }
+
+  #resume li {
+    line-height: 1.5em;
   }
 
   .contact-information > div, .education, .technical-skills {
