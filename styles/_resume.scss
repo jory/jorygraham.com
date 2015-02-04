@@ -88,11 +88,11 @@ $accent: #8fd7f1;
 
 @media screen and (min-width: 746px) {
   #resume {
-    margin: 2%;
-  }
+    margin: 3%;
 
-  #resume li {
-    line-height: 1.5em;
+    li {
+      line-height: 1.5em;
+    }
   }
 
   .contact-information > div, .education, .technical-skills {
