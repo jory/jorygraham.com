@@ -35,18 +35,18 @@ $accent: #8fd7f1;
   }
 
   .link {
-    text-align: center;
-    color: rgb(0, 165, 233);
-    text-transform: uppercase;
-
     position: relative;
 
-    h3 a {
-      font-weight: bolder;
+    text-align: center;
 
+    h3 a {
       position: relative;
       top: 0.75em;
+
       background: #FFF;
+      color: #00A5E9;
+      font-weight: bolder;
+      text-transform: uppercase;
     }
   }
 }
@@ -126,7 +126,7 @@ $accent: #8fd7f1;
     }
   }
 
-  .work-experience, .projects {
+  .work-experience, .projects, .link {
     width: 96%;
   }
 
