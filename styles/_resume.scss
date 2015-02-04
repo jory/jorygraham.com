@@ -94,4 +94,12 @@ $accent: #8fd7f1;
   .technical-skills {
     float: right;
   }
+
+  .work-experience {
+    clear: both;
+
+    h4 {
+      display: inline;
+    }
+  }
 }
