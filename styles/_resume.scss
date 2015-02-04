@@ -10,11 +10,6 @@ $accent: #8fd7f1;
     letter-spacing: 0.03em;
   }
 
-  h4 {
-    margin-top: 0.5em;
-    letter-spacing: 0.05em;
-  }
-
   a {
     color: inherit;
     text-decoration: none;
@@ -40,6 +35,12 @@ $accent: #8fd7f1;
 }
 
 .contact-information {
+  h4 {
+    margin-top: 0.5em;
+    margin-bottom: 1em;
+    letter-spacing: 0.05em;
+  }
+
   div {
     clear: both;
     span, a {
@@ -63,5 +64,14 @@ $accent: #8fd7f1;
   div {
     margin-bottom: 0.5em;
     line-height: 1.2em;
+  }
+}
+
+.work-experience {
+  h4 {
+  }
+
+  .date {
+    float: right;
   }
 }
