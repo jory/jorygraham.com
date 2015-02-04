@@ -107,6 +107,12 @@ $accent: #8fd7f1;
 
   .work-experience {
     clear: both;
+
+    ul {
+      margin-top: 0.75em;
+      margin-bottom: 2em;
+    }
+
     h4 {
       display: inline;
     }
