@@ -7,8 +7,17 @@
 $accent: #8fd7f1;
 
 #resume {
+  margin: 8px;
+
   h1 {
+    margin: 0;
     font-weight: 100;
+    letter-spacing: 0.03em;
+  }
+
+  h4 {
+    margin-top: 0.5em;
+    letter-spacing: 0.05em;
   }
 
   a {
