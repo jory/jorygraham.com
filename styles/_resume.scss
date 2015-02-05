@@ -1,5 +1,3 @@
-$accent: #8fd7f1;
-
 #resume {
   margin: 8px;
 
@@ -19,7 +17,7 @@ $accent: #8fd7f1;
     font-weight: 100;
     letter-spacing: 0.05em;
     padding-bottom: 2px;
-    border-bottom: 2px solid $accent;
+    border-bottom: 2px solid #8FD7F1;
   }
 
   h3, h4, h5 {
@@ -36,7 +34,6 @@ $accent: #8fd7f1;
 
   .link {
     position: relative;
-
     text-align: center;
 
     h3 a {
@@ -100,6 +97,10 @@ $accent: #8fd7f1;
   .date {
     float: right;
   }
+
+  ul {
+    width: 85%;
+  }
 }
 
 @media screen and (min-width: 746px) {
@@ -134,7 +135,7 @@ $accent: #8fd7f1;
     clear: both;
 
     ul {
-      width: 80%;
+      width: 90%;
 
       margin-top: 0.75em;
       margin-bottom: 2em;
