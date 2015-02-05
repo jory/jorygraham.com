@@ -8,7 +8,8 @@
                   'Rogueliker',
                   'Mobile Web Developer',
                   'Amateur Wordsmith',
-                  'Emacs Acolyte'];
+                  'Emacs Acolyte',
+                  'Cat Enthusiast'];
 
     document.title = titles[Math.floor(Math.random() * titles.length)];
   }
