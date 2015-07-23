@@ -4,7 +4,7 @@
   "dependencies": {},
   "devDependencies": {
     "bower": "^1.4.1",
-    "connect-livereload": "~0.1.4",
+    "connect-livereload": "^0.5.3",
     "grunt": "~0.4.1",
     "grunt-cli": "^0.1.13",
     "grunt-concurrent": "~0.1.0",
