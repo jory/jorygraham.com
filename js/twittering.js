@@ -34,9 +34,9 @@ window.twttr.ready(function (twttr) {
 .dark * { color: #c4e8e4 !important; }\
 .avatar, .full-name, .permalink, .p-nickname:before,\
 .footer, .tweet .retweet-credit, .inline-media { display: none; }\
-.var-narrow .tweet .header { padding-left: 12px; min-height: 0px;}\
+.env-narrow .tweet .header { padding-left: 12px; min-height: 0px;}\
 .e-entry-content { padding-left: 16px; }\
-.var-narrow.var-chromeless .tweet { padding-bottom: 0px; }\
+.env-narrow .var-chromeless .tweet { padding-bottom: 0px; }\
 .tweet.with-expansion { cursor: auto; }";
       /* jshint ignore:end */
 
